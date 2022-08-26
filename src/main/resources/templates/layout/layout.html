@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:fragment="dynamic(title, section)">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="MÓN MỚI MỖI ​NGÀY">
+<meta name="description" content="">
+<title th:replace="${title}"></title>
+<link rel="stylesheet" th:href="@{/css/nicepage.css}" media="screen">
+<link rel="stylesheet" th:href="@{/css/home.css}" media="screen">
+
+
+	
+<link id="u-theme-google-font" rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+<link id="u-page-google-font" rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/default-logo.png",
+		"sameAs": [
+				"https://facebook.com/name",
+				"https://twitter.com/name",
+				"https://www.instagram.com/name"
+		]
+}</script>
+
+<style>
+    .error {
+        color: red;
+        font-style: italic;
+    }
+</style>
+
+<!-- Angular JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <!-- Angular Route -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+	<!-- Alert -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<meta name="theme-color" content="#478ac9">
+<meta name="twitter:site" content="@">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Trang chủ">
+<meta name="twitter:description" content="">
+<meta property="og:title" content="Trang chủ">
+<meta property="og:type" content="website">
+<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+<script type="text/javascript" th:src="@{/js/nicepage.js}"></script>
+</head>
+<body ng-app="home-app" class="u-body u-xl-mode u-font-roboto u-custom-font" data-lang="en"  >
+
+	<div th:replace="/layout/_header"></div>
+	<div th:replace="${section}" ></div>
+	<div th:replace="/layout/_footer"></div>
+	
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+		crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/js/card.js}"></script>
+
+</body>
+</html>

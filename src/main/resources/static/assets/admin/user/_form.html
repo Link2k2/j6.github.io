@@ -1,0 +1,130 @@
+
+<form name="userForm">
+	<div class="card text-center">
+		<div class="card-header bg-white fw-bold">THÔNG TIN CHI TIẾT</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-6 text-start">
+					<div class="mb-3">
+						<label class="form-label" for="username">Tên đăng nhập:</label> 
+						<input ng-model="form.id" required maxlength="10" 
+							type="text" class="form-control" name="username" id="username"
+							aria-describedby="usernamehelpId"
+							placeholder="Nhập tên đăng nhập*"> 
+						<small ng-show="userForm.username.$invalid" id="usernamehelpId"
+							class="form-text fst-italic text-danger">Vui lòng nhập từ 0 đến 10 ký tự*</small>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="ho">Họ:</label> 
+						<input ng-model="form.ho" required maxlength="50" 
+							type="text" class="form-control" name="ho" id="ho"
+							aria-describedby="hohelpId"
+							placeholder="Nhập họ*">
+						<small ng-show="userForm.ho.$invalid" id="hohelpId"
+							class="form-text fst-italic text-danger">Vui lòng nhập họ*</small>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="password">Mật khẩu:</label> 
+						<input ng-model="form.password" required minlength="3" maxlength="15" 
+						type="text" class="form-control" name="password" id="password"
+							aria-describedby="passwordhelpId"
+							placeholder="Nhập mật khẩu*" ng-pattern="regex">
+						<small ng-show="userForm.password.$invalid" id="passwordhelpId"
+							class="form-text fst-italic text-danger">Mật khẩu ít nhất 3 ký tự và tối đa 15 ký tự*</small>	
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="email">Email:</label> 
+						<input ng-model="form.email" required
+						type="text" class="form-control" name="email" id="email"
+							aria-describedby="emailhelpId"
+							placeholder="Nhập email*">
+						<small ng-show="userForm.email.$invalid" id="emailhelpId"
+							class="form-text fst-italic text-danger">Vui lòng nhập đúng định dạng email*</small>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="cmnd">CMND:</label> 
+						<input ng-model="form.cmnd" required minlength="8" maxlength="15"
+							type="text" class="form-control" name="cmnd" id="cmnd"
+							aria-describedby="cmndhelpId"
+							placeholder="Nhập số chứng minh nhân dân / căn cước công dân*">
+						<small ng-show="userForm.cmnd.$invalid" id="cmndhelpId"
+							class="form-text fst-italic text-danger">CMND/CCCD ít nhất 8 ký tự và tối đa 15 ký tự*</small>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="sdt">Điện thoại:</label> 
+						<input ng-model="form.sdt" required minlength="9" maxlength="15"
+						type="text" class="form-control" name="sdt" id="sdt"
+							aria-describedby="sdthelpId"
+							placeholder="Nhập số điện thoại*">
+						<small ng-show="userForm.sdt.$invalid" id="sdthelpId"
+							class="form-text fst-italic text-danger">Số điện thoại tối thiểu 9 số*</small>
+					</div>
+					<div class="mb-3">
+						<label class="form-label">Ngày sinh:</label> <input
+							ng-model="form.ngaySinh" type="date" class="form-control">
+					</div>
+				</div>
+				<div class="col-6 text-start">
+					<div class="mb-4 mt-1">
+						<label class="form-label">Giới tính:</label> <br>
+						<div class="form-check form-check-inline">
+							<input ng-model="form.gioiTinh" ng-value="true"
+								class="form-check-input" type="radio" name="gender"> <label
+								class="form-check-label">Nam</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input ng-model="form.gioiTinh" ng-value="false"
+								class="form-check-input" type="radio" name="gender"> <label
+								class="form-check-label">Nữ</label>
+						</div>
+					</div>
+					<div class="mb-4 mt-1">
+						<label class="form-label" for="ten">Tên:</label> 
+						<input ng-model="form.ten" required maxlength="50" 
+							type="text" class="form-control" name="ten" id="ten"
+							aria-describedby="tenhelpId"
+							placeholder="Nhập tên*">
+						<small ng-show="userForm.ten.$invalid" id="tenhelpId"
+							class="form-text fst-italic text-danger">Vui lòng nhập tên*</small>
+					</div>
+					<div class="mb-3">
+						<label class="form-label">Trạng thái:</label> <br>
+						<div class="form-check form-check-inline">
+							<input ng-model="form.trangThai" ng-value="true"
+								class="form-check-input" type="radio" name="available">
+							<label class="form-check-label">Hoạt động</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input ng-model="form.trangThai" ng-value="false"
+								class="form-check-input" type="radio" name="available">
+							<label class="form-check-label">Ngưng hoạt động</label>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label class="form-label" for="dc">Địa chỉ:</label>
+						<textarea ng-model="form.diaChi" required minlength="1"
+							class="form-control" rows="8" name="dc" id="dc"
+							aria-describedby="dchelpId"
+							placeholder="Nhập địa chỉ hiện tại của bạn*">></textarea>
+						<small ng-show="userForm.dc.$invalid" id="dchelpId"
+							class="form-text fst-italic text-danger">Vui lòng nhập địa chỉ*</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card-footer text-center bg-white">
+			<button ng-click="create()" class="btn btn-primary">
+				<b><i class="bi bi-plus-circle"></i></b> Thêm mới
+			</button>
+			<button ng-click="update()" class="btn btn-success">
+				<b><i class="bi bi-pencil"></i></b> Chỉnh sửa
+			</button>
+			<button ng-click="delete(form)" class="btn btn-danger">
+				<b><i class="bi bi-x-circle"></i></b> Xóa
+			</button>
+			<button ng-click="reset()" class="btn btn-info">
+				<b><i class="bi bi-arrow-clockwise"></i></b> Làm mới
+			</button>
+		</div>
+	</div>
+</form>

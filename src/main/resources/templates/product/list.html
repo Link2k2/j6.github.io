@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout :: dynamic(~{::title}, ~{::section})}">
+<head>
+<title>Danh mục sản phẩm</title>
+</head>
+
+<body >
+	<section class="container text-center">
+		<h1>MENU</h1>
+		<div class="row" th:if="${messageError !=null}">
+			<div class="alert alert-danger" role="alert" th:text="${messageError}"></div>
+		</div>
+		<div class="row">
+			<div class="col-3 text-end">
+				<select th:onchange="'window.location.href = \'' + @{/home/product} + '?idLoai=\' + this.value'" class="form-select container" aria-label="Default select example">
+				  <option selected>Lựa chọn của bạn</option>
+				  <option th:each="i: ${cates}" th:value="${i.id}" th:text="${i.tenLoai}"></option>
+				  
+				</select>
+			</div>
+			<div class="col-9 text-end">
+				<form class="d-flex" action="/home/product/search" method = "post" >
+		        <input class="form-control me-2" type="search" placeholder="Nhập tên sản phẩm cần tìm*" name="search" required="required">
+		        <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+		      </form>
+			</div>
+		</div>
+	</section>
+	
+	<section class="container mt-2" ng-controller = "shopping-cart">
+		<div class="row" >
+			<!-- Load sp -->
+			<div class="card m-2" style="width: 17.5rem;" th:each="product : ${page1}">
+				
+			  <a  th:href="@{/home/product/detail?id=}+${product.id}">
+			  	<img  th:src="@{/assets/images/}+${product.image}" class="card-img-top" alt="Ảnh sản phẩm" style="max-height: 150px;">
+			  </a>
+			  <div class="card-body">
+			    <h5 class="card-title fw-bold" th:text="${product.tenSP}"></h5>
+			    <p class="card-text" >[(${product.thongTinCT})]</p>
+			    <hr> 
+			    <th:block th:if="${product.discount >0}">
+			    	<p class="text-danger text-end m-0 p-0" th:text="${#numbers.formatInteger(product.gia*product.discount,3,'POINT')} + ' '+ đồng"> </p>
+			    </th:block>
+			    
+			     <th:block th:unless="${product.discount >0}">
+			    	<p class="text-danger text-end m-0 p-0" th:text="${#numbers.formatInteger(product.gia,3,'POINT')} + ' '+ đồng"> </p>
+			    </th:block>	
+			    <hr>
+			    <div class="row">
+			    <th:block th:if="${#request.remoteUser}">
+			    	<div class="col-12 text-center">
+			    		<button th:attr="ng-click=@{|shoppingCart.add('${product.id}')|}" class="btn fw-bold w-100" style="background-color: #f7ea13;">Đặt món</button>
+			    	</div>
+			    </th:block>	
+			     <th:block th:unless="${#request.remoteUser}">
+			    	<div class="col-12 text-center">
+			    		<a th:href="@{/auth/login}" class="btn fw-bold w-100" style="background-color: #f7ea13;">Đặt món</a>
+			    	</div>
+			    </th:block>	
+			    </div>
+			  </div>
+			</div>
+			
+			
+		</div>
+	</section>
+	
+	<!-- Phân trang -->
+	<section class="container mb-5 mt-3">
+		<div class="row float-none" style="margin-top: 10px;">
+				<ul class="pagination justify-content-center">
+				<li class="page-item" 
+				th:classappend= "${page1.number == 0}?'disabled':''"><a
+					class="page-link" th:href="@{/home/product/page?p=0}">First</a></li>
+				<li th:class="page-item"
+				th:classappend="${page1.number == 0}?'disabled':''"><a
+					class="page-link" th:href="@{/home/product/page?p=}+${page1.number-1}">Previous</a></li>
+				<li
+					th:class="page-item"
+					th:classappend="${page1.number+1 == page1.totalPages} ?'disabled':''"><a
+					class="page-link" th:href="@{/home/product/page?p=}+${page1.number+1}">Next</a></li>
+				<li th:class="page-item "
+				th:classappend="${page1.number+1 == page1.totalPages} ?'disabled':''"><a
+					class="page-link" th:href="@{/home/product/page?p=}+${page1.totalPages-1}">Last</a></li>
+			</ul>
+		</div>
+	</section>
+	
+	
+</body>
+</html>

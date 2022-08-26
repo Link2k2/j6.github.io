@@ -1,0 +1,46 @@
+
+
+<div class="card text-center">
+    <div class="card-header bg-white fw-bold">
+        DANH SÁCH ĐƠN HÀNG BỊ HỦY
+    </div>
+    <div class="card-body bg-white">
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Mã đơn</th>
+                    <th>Tên khách hàng</th>
+                    <th>Tên người dùng</th>
+                    <th>Ngày đặt</th>
+                    <th>Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="order in pager2.unorders">
+                    <td>{{order.id}}</td>
+                    <td>{{order.fullname}}</td>
+                    <td>{{order.nguoiDung.ten}}</td>
+                    <td>{{order.ngayTao | date : 'dd-MM-yyyy'}}</td>
+                    <td>{{order.trangThai?'Hoàn thành':'Đang chờ'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer text-center bg-white">
+        <button ng-click="pager2.f2()" class="btn btn-danger">
+            <b><i class="bi bi-caret-left-square"></i></b>
+        </button>
+        <button ng-click="pager2.p2()" class="btn btn-primary">
+            <b><i class="bi bi-caret-left"></i></b>
+        </button>
+        <button class="btn btn-success">
+            <b>{{pager.page + 1}} / {{pager.count}}</b>
+        </button>
+        <button ng-click="pager2.n2()" class="btn btn-danger">
+            <b><i class="bi bi-caret-right"></i></b>
+        </button>
+        <button ng-click="pager2.l2()" class="btn btn-primary">
+            <b><i class="bi bi-caret-right-square"></i></b>
+        </button>
+    </div>
+</div>

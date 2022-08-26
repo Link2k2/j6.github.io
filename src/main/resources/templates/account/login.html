@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout :: dynamic(~{::title}, ~{::section})}">
+<head>
+<title>Đăng nhập</title>
+</head>
+
+<body>
+	<section class="container mt-2 mb-2">
+		<div class="row">
+			<div class="col-6 text-center">
+				<img alt="" th:src="@{/assets/images/icon_login.png}" class="w-75">
+			</div>
+			<div class="col-6 text-center">
+				<th:block th:if="${param.error !=null}">
+					<div class="alert alert-danger" role="alert"
+						th:text="${param.error}"></div>
+				</th:block>
+				<h1 class="fw-bold mt-5 mb-5">Đăng nhập</h1>
+				<form action="/auth/login" method="post" >
+					<div class="mb-3 row">
+						<label class="col-sm-3 col-form-label text-start" for="username"><i
+							class="bi bi-shield-lock-fill"></i> Tên đăng nhập:</label>
+						<div class="col-sm-9">
+							<input name="username"  class="form-control" placeholder="Nhập vào tên đăng nhập*" required="required">
+						</div>
+					</div>
+					<div class="mb-3 row">
+						<label class="col-sm-3 col-form-label text-start"><i
+							class="bi bi-shield-lock-fill"></i> Mật khẩu:</label>
+						<div class="col-sm-9">
+							<input type="password" name="password"  class="form-control" required="required" placeholder="Nhập vào mật khẩu của bạn*">
+						</div>
+					</div>
+					<div class="mb-3 row">
+						<div class="col-sm-3 text-end">
+							<input type="checkbox" class="form-check-input" name="remember">
+						</div>
+						<label for="remember"
+							class="col-sm-9 form-check-labell text-start">Ghi nhớ tài
+							khoản?</label>
+					</div>
+					<div class="text-center mb-3 mt-2">
+						<button type="submit" class="btn w-75 fw-bold"
+							style="background-color: #f7ea13;">ĐĂNG NHẬP</button>
+					</div>
+
+					<div class="mb-3 row mt-5">
+						<a th:href="@{/auth/forgot-password}"
+							class="col-sm-3 form-check-labell text-start text-decoration-none">Quên
+							mật khẩu?</a> <a th:href="@{/auth/register}"
+							class="col-sm-9 form-check-labell text-end text-decoration-none">Đăng
+							ký tài khoản mới</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

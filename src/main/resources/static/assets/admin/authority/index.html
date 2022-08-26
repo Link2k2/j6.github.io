@@ -1,0 +1,23 @@
+<div class="card text-center">
+    <div class="card-header bg-white fw-bold">
+        ỦY QUYỀN
+    </div>
+    <div class="card-body bg-white">
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th></th>
+                    <th ng-repeat="r in roles" class="text-center">{{r.name}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="a in admins">
+                    <td>{{a.ho + ' ' + a.ten}}</td>
+					<th ng-repeat="r in roles" class="text-center">
+						<input ng-checked="authority_of(a, r)" ng-click="authority_changed(a, r)" type="checkbox">
+					</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

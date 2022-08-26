@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout :: dynamic(~{::title}, ~{::main})}">
+<head>
+<title>Đặt hàng</title>
+</head>
+
+<body>
+	<main class="container mt-2 mb-3" ng-controller="cart-ctrl">
+
+		<div class="container-sm text-center" style="max-width: 540px;">
+			<div>
+				<input type="hidden" id="account" th:value="${#request.remoteUser}">
+			</div>
+			<div class="row">
+				<div class="col-2 mt-2 mb-2">
+					<label class="btn btn-dark border-dark fw-bold rounded-circle"
+						style="font-size: small;">1</label> <br> <label class="mt-2"
+						style="font-size: small;">Giỏ hàng</label>
+				</div>
+				<div class="col mt-2 mb-2">
+					<div class="mt-4 bg-dark border border-light"></div>
+				</div>
+				<div class="col-2 mt-2 mb-2">
+					<label class="btn btn-dark border-dark fw-bold rounded-circle"
+						style="font-size: small;">2</label> <br> <label class="mt-2"
+						style="font-size: small;">Đặt hàng</label>
+				</div>
+				<div class="col mt-2 mb-2">
+					<div class="mt-4 bg-dark border border-light"></div>
+				</div>
+				<div class="col-3 mt-2 mb-2">
+					<label class="btn btn-light border-dark fw-bold rounded-circle"
+						style="font-size: small;">3</label> <br> <label class="mt-2"
+						style="font-size: small;">Hoàn thành</label>
+				</div>
+			</div>
+		</div>
+
+		<!-- COntent -->
+		<div class="container">
+			<div class="row mt-3">
+				<article class="col">
+					<h5 class="fw-bold text-uppercase">Chi tiết đơn hàng</h5>
+					<hr>
+					<div th:replace="~{/cart/view::giohang}"></div>
+					<h5 class="fw-bold text-uppercase mt-5">địa chỉ giao hàng</h5>
+					<hr>
+					<div
+						class="bg-white container-fluid shadow shadow-sm rounded-3 mb-5">
+						<div class="row">
+							<div class="col-12 mb-3">
+								<label class="form-label">Họ tên</label> <input type="text"
+									class="form-control" ng-model="order.fullname">
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-12 mb-3">
+								<label class="form-label">Số điện thoại</label> <input
+									type="text" class="form-control" ng-model="order.sdt">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12 mb-3">
+								<label for="exampleFormControlInput6" class="form-label">Địa
+									chỉ</label> <input type="text" class="form-control"
+									ng-model="order.diaChi">
+							</div>
+						</div>
+					</div>
+					<button ng-click="order.dathang()" class="btn btn-primary fw-bold"
+						style="width: 100%;">Thanh toán</button>
+				</article>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

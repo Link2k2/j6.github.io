@@ -1,0 +1,49 @@
+
+<div >
+	<h1 class="me-2 p2 alert alert-primary text-center">BÁO CÁO DOANH THU THEO TỪNG SẢN PHẨM</h1>
+</div>
+
+<div class="table-responsive  mt-2 ">
+	
+	<table class="table table-light table-striped ">
+		<tr class="table-primary">
+			<th>Sản phẩm</th>
+			<th>Số lượng bán</th>
+			<th>Doanh thu</th>
+			
+		</tr>
+		
+			<tr ng-repeat="item in pager.items  ">
+
+				<td>{{item.sanPham.tenSP}}</td>
+				
+				<td>{{item.count}}</td>
+				<td>{{item.sum | number:0 }} VNĐ</td>
+			</tr>
+		
+	</table>
+</div>
+<div class="row bg-light">
+
+
+
+	<div class="card-footer text-center bg-white">
+        <button ng-click="pager.f()" class="btn btn-danger">
+            <b><i class="bi bi-caret-left-square"></i></b>
+        </button>
+        <button ng-click="pager.p()" class="btn btn-primary">
+            <b><i class="bi bi-caret-left"></i></b>
+        </button>
+        <button class="btn btn-success">
+            <b>{{pager.page + 1}} / {{pager.count}}</b>
+        </button>
+        <button ng-click="pager.n()" class="btn btn-danger">
+            <b><i class="bi bi-caret-right"></i></b>
+        </button>
+        <button ng-click="pager.l()" class="btn btn-primary">
+            <b><i class="bi bi-caret-right-square"></i></b>
+        </button>
+    </div>
+
+
+</div>

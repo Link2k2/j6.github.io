@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  th:replace="~{/layout/layout :: dynamic(~{::title}, ~{::body})}">
+<head>
+<meta charset="UTF-8">
+<title>hồ sơ cá nhân</title>
+</head>
+<body>
+	<form method="post" th:action="@{/home/account/my-profile}" th:object="${myprofile}" th:fragment="myprofile" class="container mb-2">
+		<div class="mb-3 row">
+			<label class="col-sm-2 form-label">Tên đăng nhập</label>
+			<div class="col-sm-10">					
+			<input th:field="*{id}" name="id" type="text" class="form-control" readonly>
+			<i th:errors="*{id}"></i>
+			</div>
+		</div>
+		<div class="mb-3 row">
+			<label class="col-sm-2 form-label">Mật khẩu</label>
+			<div class="col-sm-10">	
+			<input value="${password}" name="password" type="password" class="form-control" required>		
+			<i th:errors="*{password}"></i>			
+			</div>
+		</div>
+		<div class="mb-3 row">
+			<label class="col-sm-2 form-label">Họ</label>
+			<div class="col-sm-10">						
+			<input th:field="*{ho}" name="ho" type="text" class="form-control" required>
+			<i th:errors="*{ho}"></i>
+			</div>
+		</div>
+		<div class="mb-3 row">
+			<label class="col-sm-2 form-label">Tên</label>
+			<div class="col-sm-10">					
+			<input th:field="*{ten}" name="ten" type="text" class="form-control" required>
+			<i th:errors="*{ten}"></i>
+			</div>
+		</div>
+		<div class="mb-3 row">
+			<label class="col-sm-2 form-label">Email</label>
+			<div class="col-sm-10">					
+			<input th:field="*{email}" name="email" type="email" class="form-control" required>
+			<i th:errors="*{email}"></i>
+			</div>
+		</div>
+		<label class="col-sm-2 form-label">Giới tính: </label>
+		<div class="form-check form-check-inline">
+			<input th:field="*{gioiTinh}" name="gioiTinh" class="form-check-input" type="radio"  id="inlineRadio1"
+				value="true" required>
+			<label class="form-check-label" for="inlineRadio1">Nam</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input th:field="*{gioiTinh}" name="gioiTinh" class="form-check-input" type="radio" id="inlineRadio2"
+				value="false" required>
+			<label class="form-check-label" for="inlineRadio2">Nữ</label>
+		</div>
+		<div class="mb-3 row">
+			<label class="col-sm-2 form-label">Ngày sinh</label>
+			<div class="col-sm-10">						
+			<input th:field="*{ngaySinh}" name="ngaySinh" type="date" class="form-control" required>
+			</div>
+			<i th:errors="*{gioiTinh}"></i>
+		</div>
+		<div class="mb-3 row">
+			<label class="col-sm-2 form-label">CMND</label>
+			<div class="col-sm-10">						
+			<input th:field="*{cmnd}" name="cmnd" type="text" class="form-control" required>
+			<i th:errors="*{cmnd}"></i>
+			</div>
+		</div>
+		<div class="mb-3 row">
+			<label class="col-sm-2 form-label">Điện thoại</label>
+			<div class="col-sm-10">						
+			<input th:field="*{sdt}" name="sdt" type="text" class="form-control" required>
+			<i th:errors="*{sdt}"></i>
+			</div>
+		</div>
+		<div class="mb-3 row">
+			<label class="col-sm-2 form-label">Địa chỉ</label>
+			<div class="col-sm-10">					
+			<input th:field="*{diaChi}" name="diaChi" type="text" class="form-control" required>
+			<i th:errors="*{diaChi}"></i>
+			</div>
+		</div>
+		<div class="row">
+			<button type="submit" class="btn btn-primary w-100 fw-bold">CẬP NHẬT</button>
+		</div>
+	</form>
+</body>
+</html>

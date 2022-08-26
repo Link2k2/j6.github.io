@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout :: dynamic(~{::title}, ~{::main})}">
+<head>
+<title>Liên hệ</title>
+</head>
+
+<body>
+	<main class="container text-center">
+		<h2>Cao Đẳng FPT Polytechnic Cần Thơ</h2>
+		Trụ sở chính: Số 288 Đường Nguyễn Văn Linh, Hưng Lợi, Ninh Kiều, Cần
+		Thơ 900000, Việt Nam<br> <br>
+		<iframe
+			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.8775441112434!2d105.75497671437081!3d10.02696277532161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a089d294a53693%3A0xf3d0fb7758da72d0!2zVHLGsOG7nW5nIGNhbyDEkeG6s25nIEZQVCBQb2x5dGVjaG5pYyBD4bqnbiBUaMah!5e0!3m2!1svi!2s!4v1641995526072!5m2!1svi!2s"
+			width="600" height="450" style="border: 0;" allowfullscreen=""
+			loading="lazy"></iframe>
+		<div class="container-fluid mt-2 mb-3 text-start">
+			<div class="card">
+				<div class="card-header bg-light">
+					<span class="glyphicon glyphicon-th-list" style="margin: 5px;"></span>
+					<strong>Liên Hệ </strong>
+					<form name="frmGopy">
+						<div class="col-12">
+							<label for="inputhoten" class="form-label">Họ Tên</label> <input
+								type="text" class="form-control" name="hoten" id="inputhoten"
+								required>
+						</div>
+						<div class="col-12">
+							<label for="inputEmail4" class="form-label">Email</label> <input
+								type="email" class="form-control" name="email" id="inputEmail4"
+								required>
+						</div>
+
+						<div class="col-12">
+							<label for="exampleFormControlTextarea1" class="form-label">Nội
+								dung liên hệ</label>
+							<textarea class="form-control" id="exampleFormControlTextarea1"
+								name="cmt" required></textarea>
+						</div>
+						<div style="margin-top: 10px"
+							class="col-12 d-flex justify-content-center">
+							<button type="submit" class="btn btn-primary">GỞI PHẢN
+								HỒI</button>
+						</div>
+				</div>
+				</form>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

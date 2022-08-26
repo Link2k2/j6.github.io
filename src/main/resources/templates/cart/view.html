@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout :: dynamic(~{::title}, ~{::main})}">
+
+<head>
+<title>Giỏ hàng</title>
+</head>
+<body class="">
+	<main class="container mt-2 mb-3" 
+		ng-controller="cart-ctrl">
+		<div class="container-sm text-center" style="max-width: 540px;">
+			<div class="row">
+				<div class="col-2 mt-2 mb-2">
+					<label class="btn btn-dark border-dark fw-bold rounded-circle"
+						style="font-size: small;">1</label> <br> <label class="mt-2"
+						style="font-size: small;">Giỏ hàng</label>
+				</div>
+				<div class="col mt-2 mb-2">
+					<div class="mt-4 bg-dark border border-light"></div>
+				</div>
+				<div class="col-2 mt-2 mb-2">
+					<label class="btn btn-light border-dark fw-bold rounded-circle"
+						style="font-size: small;">2</label> <br> <label class="mt-2"
+						style="font-size: small;">Đặt hàng</label>
+				</div>
+				<div class="col mt-2 mb-2">
+					<div class="mt-4 bg-dark border border-light"></div>
+				</div>
+				<div class="col-3 mt-2 mb-2">
+					<label class="btn btn-light border-dark fw-bold rounded-circle"
+						style="font-size: small;">3</label> <br> <label class="mt-2"
+						style="font-size: small;">Hoàn thành</label>
+				</div>
+			</div>
+		</div>
+		<!-- COntent -->
+		<div class="container mb-5" th:fragment="giohang">
+			<nav class="navbar navbar-expand-lg bg-dark mt-3 mb-3 shadow-sm"
+				style="height: 100px; border-radius: 15px;">
+				<div class="container-fluid">
+					<div class="col-6 form-check">
+						<label class="text-white fw-bold"> Thông tin sản phẩm </label>
+					</div>
+					<div class="col-2 text-center">
+						<label class="text-white fw-bold"> Giá </label>
+					</div>
+					<div class="col-2 text-center">
+						<label class="text-white fw-bold"> Thành tiền </label>
+					</div>
+					<div class="col-2 text-center">
+						<label class="text-white fw-bold"> Thao tác </label>
+					</div>
+					<div class="col"></div>
+				</div>
+			</nav>
+			<nav ng-repeat="item in cart.items"
+				class="navbar navbar-expand-lg bg-white mt-3 mb-3 rounded-3 shadow-sm">
+				<div class="container-fluid">
+					<div class="col-6 form-check container-fluid">
+						<div class="row">
+							<div class="col-3 text-center">
+								<img src="/assets/images/{{item.sp.image}}" alt="Ảnh sản phẩm"
+									width="60%">
+							</div>
+							<div class="col-6 text-start mt-2">
+								<label class="fw-bold">{{item.sp.tenSP}}</label>
+							</div>
+							<div class="col-3 text-center mt-2">
+								<label>Số lượng</label>
+								<div class="input-group mb-3">
+									<input type="number" id="sl-{{item.id}}"
+										class="form-control text-center border-dark"
+										ng-blur="checkMaxSl(item.id)" ng-model="item.soLuong" min=1
+										max="{{item.sp.soLuong}}"
+										ng-change="cart.update(item.id,item.soLuong);cart.load()">
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-2 text-center" >
+						
+						<label id="DiscountPrice" class="fw-light" ng-show="item.sp.discount > 0">
+							{{item.sp.gia * item.sp.discount | number : 0}} Đ</label> 
+							<label class="fw-light" id="notDiscountPrice"
+							ng-show="item.sp.discount <= 0"> {{item.sp.gia | number : 0}} Đ</label>
+					</div>
+					
+					<div class="col-2 text-center" >
+						<label class="fw-light" ng-show="item.sp.discount > 0" id="discount">
+							{{item.soLuong * item.sp.gia * item.sp.discount | number : 0}} Đ</label> 
+							<label
+							class="fw-light" ng-show="item.sp.discount <= 0" id="notDiscount">
+							{{item.soLuong * item.sp.gia | number : 0}} Đ</label>
+					</div>
+					
+					
+					
+					
+					
+					
+					<div class="col-2 text-center">
+						<button ng-click="cart.remove(item.id)" class="btn btn-danger">Xóa</button>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<div class="container-fluid bg-white p-3">
+			<div class="row">
+
+				<div class="col-5"></div>
+				<div class="col-4 text-end container-fluid pt-2">
+					<div class="row">
+						<div class="col">
+							<label>Tổng tiền:</label> <label
+								class="fw-bold text-primary fs-4">{{cart.amount | number : 0}} Đ</label>
+						</div>
+						<div class="col">
+							<a th:href="@{/home/account/cart-detail}">
+								<button class="btn btn-primary fw-bold"
+									style="width: 100%; height: 90%;">Tiến hành đặt hàng</button>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

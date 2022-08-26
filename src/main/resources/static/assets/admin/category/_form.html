@@ -1,0 +1,36 @@
+
+<form name="productForm">
+	<div class="card text-center">
+		<div class="card-header bg-white fw-bold">THÔNG TIN CHI TIẾT</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-12 text-start">
+					<div class="mb-4 mt-1">
+					<input type="hidden" ng-model="form.id" value="{{form.id}}">
+						<label for="name" class="form-label">Tên</label> 
+						<input ng-model="form.tenLoai" required 
+							type="text" class="form-control" name="name" id="name"
+							aria-describedby="namehelpId"
+							placeholder="Nhập vào tên của loại sản phẩm">
+						<small ng-show="productForm.name.$invalid" id="namehelpId"
+							class="form-text fst-italic text-danger">Vui nhập tên của loại sản phẩm*</small>
+               		</div>
+				</div>
+			</div>
+		</div>
+		<div class="card-footer text-center bg-white">
+			<button ng-click="create()" class="btn btn-primary" type="submit">
+				<b><i class="bi bi-plus-circle"></i></b> Thêm mới
+			</button>
+			<button ng-click="update()" class="btn btn-success" type="submit">
+				<b><i class="bi bi-pencil"></i></b> Chỉnh sửa
+			</button>
+			<button ng-click="delete(form)" class="btn btn-danger" type="submit">
+				<b><i class="bi bi-x-circle"></i></b> Xóa
+			</button>
+			<button ng-click="reset()" class="btn btn-info" type="submit">
+				<b><i class="bi bi-arrow-clockwise"></i></b> Làm mới
+			</button>
+		</div>
+	</div>
+</form>

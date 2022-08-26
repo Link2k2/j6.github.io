@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/layout :: dynamic(~{::title}, ~{::main})}">
+	<head>
+		<title>Lấy lại mật khẩu</title>
+	</head>
+
+	<body>
+		<main class="container">
+			<div class="row">
+				<div class="col-6 text-center">
+					<img alt="" th:src="@{/assets/images/icon_login.png}" class="w-75">
+				</div>
+				<div class="col-6 text-center">
+					<h1 class="fw-bold mt-5 mb-5">Lấy lại mật khẩu</h1>
+					
+					  <form method="post" th:action="@{/auth/get-forgot-password}" th:object="${forgot}">
+					  <div th:text="${message}"></div>
+						<div class="mb-3 row">
+						  <label class="col-sm-3 form-label text-start"><i class="bi bi-person-circle"></i> Tên đăng nhập:</label>
+						  <div class="col-sm-9 text-start">
+						  	<input th:field="*{id}" type="text" class="form-control" required>
+						  	<i th:errors="*{id}" class="error"></i><br>
+						  </div>
+						</div>
+						<div class="mb-3 row">
+						  <label class="col-sm-3 form-label text-start"><i class="bi bi-envelope-fill"></i> Email:</label>
+						  <div class="col-sm-9 text-start">
+						  	<input th:field="*{email}" type="email" class="form-control" required>
+						  	<i th:errors="*{email}" class="error"></i><br>
+						  </div>
+						</div>
+						<button type="submit" class="btn btn-primary w-100 fw-bold mt-5">Lấy lại mật khẩu</button>
+					</form>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

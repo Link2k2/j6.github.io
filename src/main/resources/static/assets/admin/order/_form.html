@@ -1,0 +1,53 @@
+<div class="card text-center">
+    <div class="card-header bg-white fw-bold">
+        THÔNG TIN CHI TIẾT
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6 text-start">
+                <div class="mb-3">
+                    <label class="form-label">Mã đơn</label>
+                    <input ng-model="form.id" type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Người dùng</label>
+                    <input ng-model="form.nguoiDung.ten" type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Trạng thái</label> <br>
+                    <div class="form-check form-check-inline">
+                        <input ng-model="form.trangThai" ng-value="true"
+                        	 class="form-check-input" type="radio" name="available">
+                        <label class="form-check-label">Hoàn thành</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input ng-model="form.trangThai" ng-value="false" 
+                        	ng-if="!form.trangThai" class="form-check-input" type="radio" name="available">
+                        <label class="form-check-label">Đang chờ</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 text-start">
+                <div class="mb-3">
+                    <label class="form-label">Ngày tạo đơn</label>
+                    <input ng-model="form.ngayTao" type="date" class="form-control">
+                </div>
+                <div class="mb-4 mt-1">
+                    <label class="form-label">Khách hàng</label>
+                    <input ng-model="form.fullname" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-center bg-white">
+        <button ng-click="update()" class="btn btn-success">
+            <b><i class="bi bi-pencil"></i></b> Chỉnh sửa
+        </button>
+        <button ng-click="delete(form)" class="btn btn-danger">
+            <b><i class="bi bi-x-circle"></i></b> Hủy đơn
+        </button>
+        <button ng-click="reset()" class="btn btn-info">
+            <b><i class="bi bi-arrow-clockwise"></i></b> Làm mới
+        </button>
+    </div>
+</div>

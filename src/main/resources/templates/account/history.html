@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout :: dynamic(~{::title}, ~{::body})}">
+>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	 <form class="container mt-2 mb-3" action="" th:fragment="history">
+		<table class="table table-light table-bordered" ng-app="cart-app"
+			ng-controller="donhang-ctrl">
+			<tr class="table-secondary text-center">
+				<th>Mã đơn</th>
+				<th>Trạng thái</th>
+			</tr>
+			<tr ng-repeat="item in donhang.items">
+				<td>{{item.id}}</td>
+				<td>{{!item.trangThai?'Đang chờ':'Hoàn thành'}}</td>
+				<td><a class="btn"
+					th:href="@{/home/account/order-detail/{{item.id}}}">Xem chi
+						tiết</a></td>
+			</tr>
+
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout :: dynamic(~{::title}, ~{::section})}">
+<head>
+<title>Chi tiết sản phẩm</title>
+</head>
+
+<body>
+	<section class="container" ng-controller="detail-product">
+		<div class="row mt-3 mb-3">
+			<div class="col-6">
+				<div class="container">
+					<div class="row" >
+						<div class="col-9">
+							<img alt="" th:src="@{/assets/images/}+${sanPham.image}" class="w-100">
+						</div>	
+						<div class="col-3" >
+							<div class="m-2" th:each="items : ${galeryList}">
+								<img alt="" th:src="@{/assets/images/}+${items.urlImage}" class="w-100">
+							</div>
+							
+						</div>				
+					</div>
+				</div>
+			</div>
+			<div class="col-6" >
+				<h2 class="fw-bold" th:text="${sanPham.tenSP}"></h2>
+				<th:block th:if="${sanPham.discount} ==0">
+				<p class="text-danger text-start m-0 p-0" th:text="${#numbers.formatInteger(sanPham.gia,3,'POINT')} +' '+ đồng">  </p>
+				</th:block>	
+				<th:block th:unless="${sanPham.discount} ==0">
+				<p class="text-danger text-start m-0 p-0" th:text="${#numbers.formatInteger(sanPham.gia * sanPham.discount,3,'POINT'} +' '+ đồng">  </p>
+				</th:block>	
+				
+				
+				<p class="text-wrap" th:text="${sanPham.thongTinCT}"></p>
+			    <button th:attr="ng-click=@{|shoppingCart.add('${sanPham.id}')|}" class="btn fw-bold" style="background-color: #f7ea13;">Đặt món</button>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+	<section class="container">
+		<a th:href="@{/home/product}" class="u-border-none u-btn u-button-style u-custom-color-1 u-hover-black u-btn-1 fw-bold">
+			XEM THÊM >> <br>
+		</a>
+	</section>
+</body>
+</html>

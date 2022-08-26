@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+th:replace="~{/layout/layout :: dynamic(~{::title}, ~{::main})}">
+	<head>
+		<title>Chính sách</title>
+	</head>
+
+	<body>
+		<main class="container mt-2 mb-2">
+			<div class="row">
+				<div class="col-6 text-center">
+					<img alt="" th:src="@{/assets/images/icon_login.png}" class="w-75">
+				</div>
+				<div class="col-6 text-center">
+					<h1 class="fw-bold mt-5 mb-5">Chia sẻ</h1>
+					<form method="post">
+					  <div class="mb-3 row">
+					    <label for="id" class="col-sm-2 col-form-label text-start">Email:</label>
+					    <div class="col-sm-10">
+					      <input type="email" class="form-control" id="id">
+					    </div>
+					  </div>
+					  <div class="text-center mb-3 mt-2">
+						<button class="btn w-75 fw-bold" style="background-color: #f7ea13;">CHIA SẺ</button>
+					  </div>
+				  </form>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

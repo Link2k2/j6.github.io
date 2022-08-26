@@ -1,0 +1,51 @@
+
+<div class="card text-center">
+    <div class="card-header bg-white fw-bold">
+        THÔNG TIN CHI TIẾT
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 text-start">
+            	
+            	<input type="hidden" ng-model="form.id" >
+                <div class="mb-4 mt-1">
+                    <label class="form-label">Tên</label>
+                    
+					<select  id="selectCbb"  class="form-select">
+						
+                        <option   ng-model="form.sp" ng-repeat="select in cbBox" 
+                        ng-selected="select.id === form.sp.id" value="{{select}}" >
+                        {{select.id}} - {{select.tenSP}}</option>
+                        
+                    </select>
+                    
+                    
+                </div> 
+                <div class="col-4">
+                <label for="image">
+                    <img ng-src="{{'/assets/images/' + form.urlImage}}" alt="Ảnh sản phẩm" style="max-width: 100%; height: 250px;"><br>
+                </label>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Ảnh minh họa</label>
+                    <input type="file" class="form-control" id="image" multiple maxlength="2"
+                        onchange="angular.element(this).scope().ImageChanged(this.files)">
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-center bg-white">
+        <button ng-click="create()" class="btn btn-primary">
+            <b><i class="bi bi-plus-circle"></i></b> Thêm mới
+        </button>
+        <button ng-click="update()" class="btn btn-primary">
+            <b><i class="bi bi-plus-circle"></i></b> Update
+        </button>
+        <button ng-click="delete(form)" class="btn btn-danger">
+            <b><i class="bi bi-x-circle"></i></b> Xóa
+        </button>
+        <button ng-click="reset()" class="btn btn-info">
+            <b><i class="bi bi-arrow-clockwise"></i></b> Làm mới
+        </button>
+    </div>
+</div>

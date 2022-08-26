@@ -1,0 +1,59 @@
+
+
+<div class="card text-center">
+    <div class="card-header bg-white fw-bold">
+        DANH SÁCH NGƯỜI DÙNG
+    </div>
+    <div class="card-body bg-white">
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Tên đăng nhập</th>
+                    <th>Họ</th>
+                    <th>Tên</th>
+                    <th>Email</th>
+                    <th>Giới tính</th>
+                    <th>Ngày sinh</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in pager.users">
+                    <td>{{user.id}}</td>
+                    <td>{{user.ho}}</td>
+                    <td>{{user.ten}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.gioiTinh?'Nam':'Nữ'}}</td>
+                    <td>{{user.ngaySinh | date : 'dd-MM-yyyy'}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button ng-click="edit(user)" type="button" class="btn btn-warning">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                            <button ng-click="delete(user)" type="button" class="btn btn-danger">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer text-center bg-white">
+        <button ng-click="pager.f()" class="btn btn-danger">
+            <b><i class="bi bi-caret-left-square"></i></b>
+        </button>
+        <button ng-click="pager.p()" class="btn btn-primary">
+            <b><i class="bi bi-caret-left"></i></b>
+        </button>
+        <button class="btn btn-success">
+            <b>{{pager.page + 1}} / {{pager.count}}</b>
+        </button>
+        <button ng-click="pager.n()" class="btn btn-danger">
+            <b><i class="bi bi-caret-right"></i></b>
+        </button>
+        <button ng-click="pager.l()" class="btn btn-primary">
+            <b><i class="bi bi-caret-right-square"></i></b>
+        </button>
+    </div>
+</div>

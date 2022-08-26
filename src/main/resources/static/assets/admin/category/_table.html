@@ -1,0 +1,51 @@
+
+
+<div class="card text-center">
+    <div class="card-header bg-white fw-bold">
+        DANH SÁCH LOẠI SẢN PHẨM
+    </div>
+    <div class="card-body bg-white">
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Mã loại</th>
+                    <th>Tên</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cate in pager.cates">
+                    <td>{{cate.id}}</td>
+                    <td>{{cate.tenLoai}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button ng-click="edit(cate)" type="button" class="btn btn-warning">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                            <button ng-click="delete(cate)" type="button" class="btn btn-danger">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer text-center bg-white">
+        <button ng-click="pager.f()" class="btn btn-danger">
+            <b><i class="bi bi-caret-left-square"></i></b>
+        </button>
+        <button ng-click="pager.p()" class="btn btn-primary">
+            <b><i class="bi bi-caret-left"></i></b>
+        </button>
+        <button class="btn btn-success">
+            <b>{{pager.page + 1}} / {{pager.count}}</b>
+        </button>
+        <button ng-click="pager.n()" class="btn btn-danger">
+            <b><i class="bi bi-caret-right"></i></b>
+        </button>
+        <button ng-click="pager.l()" class="btn btn-primary">
+            <b><i class="bi bi-caret-right-square"></i></b>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout :: dynamic(~{::title}, ~{::main})}">
+<head>
+<title>Thanh toán</title>
+</head>
+
+<body>
+	<main class="container mt-2 mb-3">
+		<div class="container-sm text-center" style="max-width: 540px;">
+			<div class="row">
+				<div class="col-2 mt-2 mb-2">
+					<label class="btn btn-dark border-dark fw-bold rounded-circle"
+						style="font-size: small;">1</label> <br> <label class="mt-2"
+						style="font-size: small;">Giỏ hàng</label>
+				</div>
+				<div class="col mt-2 mb-2">
+					<div class="mt-4 bg-dark border border-light"></div>
+				</div>
+				<div class="col-2 mt-2 mb-2">
+					<label class="btn btn-dark border-dark fw-bold rounded-circle"
+						style="font-size: small;">2</label> <br> <label class="mt-2"
+						style="font-size: small;">Đặt hàng</label>
+				</div>
+				<div class="col mt-2 mb-2">
+					<div class="mt-4 bg-dark border border-light"></div>
+				</div>
+				<div class="col-3 mt-2 mb-2">
+					<label class="btn btn-dark border-dark fw-bold rounded-circle"
+						style="font-size: small;">3</label> <br> <label class="mt-2"
+						style="font-size: small;">Hoàn thành</label>
+				</div>
+			</div>
+		</div>
+
+		<!-- COntent -->
+		<div class="row mb-3 bg-white shadow shadow-sm rounded-3 text-center">
+			<div class="col-8 offset-2">
+				<div class="mt-5">
+					<h1 class="text-uppercase mt-5 fw-bold">đặt hàng thành công</h1>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
